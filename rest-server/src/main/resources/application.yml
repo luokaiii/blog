@@ -1,2 +1,22 @@
 server:
   port: 9001 # 服务启动端口
+
+spring:
+  datasource:
+    platform: h2                    # 指定数据平台
+    url: jdbc:h2:file:./db/blog           # h2 连接地址
+    username: sa                    # h2 账号
+    password: password              # h2 密码
+    #    schema: classpath:db/schema.sql # h2 数据表结构初始化
+    #    data: classpath:db/data.sql     # h2 数据初始化
+    driver-class-name: org.h2.Driver # h2 驱动
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update              # 设置DDL模式
+  h2:
+    console:
+      enabled: true                 # 开启控制台
+      settings:
+        web-allow-others: true      # 允许远程访问控制台
